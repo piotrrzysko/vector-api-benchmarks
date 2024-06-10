@@ -39,15 +39,15 @@ jmh {
 
     if (getBooleanProperty("jmh.profilersEnabled", false)) {
         createDirIfDoesNotExist("./profilers/perfasm")
-        profilers.add("perfasm:intelSyntax=true;saveLog=true;saveLogTo=./profilers/perfasm")
-        profilers.add("perf")
+       // profilers.add("perfasm:intelSyntax=true;saveLog=true;saveLogTo=./profilers/perfasm")
+       // profilers.add("perf")
         profilers.add("gc")
 
-        val asyncProfilerPath = System.getenv("LD_LIBRARY_PATH") ?: System.getProperty("java.library.path")
-        if (asyncProfilerPath != null) {
-            createDirIfDoesNotExist("./profilers/async")
-            profilers.add("async:verbose=true;output=flamegraph;event=alloc;dir=./profilers/async;libPath=${asyncProfilerPath}")
-        }
+//        val asyncProfilerPath = System.getenv("LD_LIBRARY_PATH") ?: System.getProperty("java.library.path")
+//        if (asyncProfilerPath != null) {
+//            createDirIfDoesNotExist("./profilers/async")
+//            profilers.add("async:verbose=true;output=flamegraph;event=alloc;dir=./profilers/async;libPath=${asyncProfilerPath}")
+//        }
     }
 
     if (project.hasProperty("jmh.includes")) {
